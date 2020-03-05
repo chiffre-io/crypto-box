@@ -35,28 +35,28 @@ export function parsePublicKey(key: string): Uint8Array {
   return b64.decode(match[1])
 }
 
-export function parseSecretKey(key: string): nacl.BoxKeyPair {
+export function parseSecretKey(key: string): Uint8Array {
   const match = key.match(secretKeyRegex)
   if (!match) {
     throw new Error('Invalid secret key format')
   }
-  return nacl.box.keyPair.fromSecretKey(b64.decode(match[1]))
+  return b64.decode(match[1])
 }
 
 // --
 
-export function generateKeys(secretKey?: string): Readonly<CryptoBoxKeys> {
-  function tryParsingSecretKey() {
-    try {
-      if (!secretKey) {
-        return null
-      }
-      return parseSecretKey(secretKey)
-    } catch {
-      return null
-    }
+export function generateKeys(): Readonly<CryptoBoxKeys> {
+  const keyPair = nacl.box.keyPair()
+  return {
+    public: serializePublicKey(keyPair.publicKey),
+    secret: serializeSecretKey(keyPair.secretKey),
+    raw: keyPair
   }
-  const keyPair = tryParsingSecretKey() ?? nacl.box.keyPair()
+}
+
+export function importKeys(secretKey: string): Readonly<CryptoBoxKeys> {
+  const secretKeyBuffer = parseSecretKey(secretKey)
+  const keyPair = nacl.box.keyPair.fromSecretKey(secretKeyBuffer)
   return {
     public: serializePublicKey(keyPair.publicKey),
     secret: serializeSecretKey(keyPair.secretKey),
