@@ -2,7 +2,8 @@
 
 [![NPM](https://img.shields.io/npm/v/@chiffre/crypto-box?color=red)](https://www.npmjs.com/package/@chiffre/crypto-box)
 [![MIT License](https://img.shields.io/github/license/chiffre-io/crypto-box.svg?color=blue)](https://github.com/chiffre-io/crypto-box/blob/master/LICENSE)
-[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/chiffre-io/crypto-box/ci)](https://github.com/chiffre-io/crypto-box/actions)
+[![Continuous Integration](https://github.com/chiffre-io/crypto-box/workflows/Continuous%20Integration/badge.svg?branch=next)](https://github.com/chiffre-io/crypto-box/actions)
+[![Coverage Status](https://coveralls.io/repos/github/chiffre-io/crypto-box/badge.svg?branch=next)](https://coveralls.io/github/chiffre-io/crypto-box?branch=next)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=chiffre-io/crypto-box)](https://dependabot.com)
 
 Lightweight serialization for TweetNaCl sealed box pattern.
