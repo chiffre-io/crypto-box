@@ -3,11 +3,10 @@
     "baseUrl": ".",
     "target": "es2018",
     "module": "commonjs",
-    "lib": [],
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "paths": { "*": ["types/*"] },
+    "esModuleInterop": true,
 
     // Strict Type-Checking Options
     "strict": true,
@@ -24,11 +23,10 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
 
-    "esModuleInterop": true,
-
     // Experimental Options
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
+  "include": ["./src/**/*.ts"],
   "exclude": ["./src/**/*.test.ts", "./dist", "./node_modules"]
 }
