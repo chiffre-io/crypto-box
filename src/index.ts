@@ -1,5 +1,6 @@
 import nacl from 'tweetnacl'
-import { utf8, b64 } from '@47ng/codec'
+import utf8 from '@47ng/codec/dist/utf8'
+import b64 from '@47ng/codec/dist/b64'
 
 // --
 
